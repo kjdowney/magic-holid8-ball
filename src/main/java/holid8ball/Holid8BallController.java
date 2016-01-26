@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Holid8BallController {
 
-    private static final String template = "%s";
-    private final AtomicLong counter = new AtomicLong();
+   private static final String template = "%s";
+   private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/magicholid8ball")
-    public Holiday holiday(@RequestParam(value="name", defaultValue="New Year's Day") String name) {
-        return new Holiday(counter.incrementAndGet(),
-                            String.format(template, name));
-    }
+   @RequestMapping("/magicholid8ball")
+      public Holiday holiday(@RequestParam(value="name", defaultValue="New Year's Day") String name) {
+         return new Holiday(counter.incrementAndGet(),
+               String.format(template, name));
+      }
 }

@@ -20,7 +20,7 @@ public class Holid8BallController {
          String name = "Unknown";
 
          if ("ANY".equalsIgnoreCase(monthName)) {
-            monthNum = ThreadLocalRandom.current().nextInt(0, 12);
+            monthNum = ThreadLocalRandom.current().nextInt(1, 13);
          }
 
          switch(monthNum) {

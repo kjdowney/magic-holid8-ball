@@ -12,8 +12,22 @@ public class Holid8BallController {
    private final AtomicLong counter = new AtomicLong();
 
    @RequestMapping("/magicholid8ball")
-      public Holiday holiday(@RequestParam(value="name", defaultValue="New Year's Day") String name) {
+      public Holiday holiday(
+            @RequestParam(value="monthName", defaultValue="any") String monthName) {
+         int monthNum = 0;
+         String name = "Unknown";
+
+         if ("ANY".equalsIgnoreCase(monthName)) {
+            monthNum = 1;
+         }
+
+         if (1 == monthNum) {
+            monthName = "January";
+            name = "New Year's Day";
+         }
+
          return new Holiday(counter.incrementAndGet(),
-               String.format(template, name));
+               String.format(template, name),
+               String.format(template, monthName));
       }
 }
